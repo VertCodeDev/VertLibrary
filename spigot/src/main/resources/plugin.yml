@@ -1,0 +1,9 @@
+name: VertLibrary
+version: ${project.version}
+main: dev.vertcode.vertlibrary.VertLibrary
+authors: [ VertCode, xCodiq ]
+description: The library plugin for every plugin made by VertCode Development
+website: vertcode.eu
+commands:
+  vertlibrary:
+    aliases: [ hexalibrary, vertcode, vertcodedevelopment ]
