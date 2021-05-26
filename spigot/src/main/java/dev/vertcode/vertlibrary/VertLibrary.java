@@ -13,6 +13,8 @@ import dev.vertcode.vertlibrary.base.VertCommandBase;
 import dev.vertcode.vertlibrary.base.VertPluginBase;
 import dev.vertcode.vertlibrary.gui.worker.GUIWorkerListener;
 import dev.vertcode.vertlibrary.standalone.command.VertLibraryCommand;
+import dev.vertcode.vertlibrary.standalone.config.GenericLang;
+import dev.vertcode.vertlibrary.standalone.config.LibraryConf;
 import dev.vertcode.vertlibrary.standalone.listener.ArmorListener;
 import lombok.Getter;
 
@@ -34,6 +36,9 @@ public final class VertLibrary extends VertPluginBase {
     @Override
     public void onStartup() {
         instance = this;
+
+        registerConfig("config", LibraryConf.class);
+        registerConfig("language", GenericLang.class);
 
         this.registerListener(new GUIWorkerListener());
         this.registerListener(new ArmorListener());
