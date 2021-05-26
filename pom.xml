@@ -41,7 +41,7 @@
                             <relocations>
                                 <relocation>
                                     <pattern>io.netty</pattern>
-                                    <shadedPattern>com.infusedmc.infusedlibrary.shade.netty</shadedPattern>
+                                    <shadedPattern>dev.vertcode.vertlibrary.shade.netty</shadedPattern>
                                 </relocation>
                             </relocations>
                         </configuration>
