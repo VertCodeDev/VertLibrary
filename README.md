@@ -27,7 +27,7 @@ These instructions will learn you how to set use this library.
 </dependency>
 ```
 
-> (Step 4): Replace {type} with **commons** or **spigot**
+> (Step 4): Replace {type} with **commons**, **spigot** or **velocity**
 
 > (Step 5): Replace {version} with the version you want to use
 
