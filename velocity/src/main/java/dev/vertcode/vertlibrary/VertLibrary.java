@@ -16,8 +16,10 @@ import com.velocitypowered.api.plugin.Plugin;
 import com.velocitypowered.api.plugin.annotation.DataDirectory;
 import com.velocitypowered.api.proxy.ProxyServer;
 import dev.vertcode.vertlibrary.base.VertPluginBase;
+import dev.vertcode.vertlibrary.conf.GenericLang;
 import lombok.Getter;
 
+import java.io.File;
 import java.nio.file.Path;
 import java.util.logging.Logger;
 
@@ -37,6 +39,8 @@ public class VertLibrary extends VertPluginBase {
     @Subscribe
     public void onProxyInitialize(ProxyInitializeEvent event) {
         this.printLogo();
+
+        registerConfig("language", new File(this.getDataFolder(), "language.json"), GenericLang.class);
     }
 
 }
