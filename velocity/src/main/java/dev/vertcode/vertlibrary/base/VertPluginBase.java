@@ -9,9 +9,6 @@
 
 package dev.vertcode.vertlibrary.base;
 
-import com.velocitypowered.api.event.Subscribe;
-import com.velocitypowered.api.event.proxy.ProxyInitializeEvent;
-import com.velocitypowered.api.event.proxy.ProxyShutdownEvent;
 import com.velocitypowered.api.proxy.ProxyServer;
 import dev.vertcode.vertlibrary.ascii.AsciGen;
 import dev.vertcode.vertlibrary.chat.ChatUtils;
@@ -19,7 +16,6 @@ import dev.vertcode.vertlibrary.config.EnumConfig;
 import dev.vertcode.vertlibrary.config.EnumConfigLoader;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import net.kyori.adventure.text.Component;
 
 import java.io.File;
 import java.io.InputStream;
@@ -79,6 +75,24 @@ public abstract class VertPluginBase {
      */
     public void executeIfPluginIsEnabled(String pluginName, Runnable runnable) {
         if (this.proxyServer.getPluginManager().isLoaded(pluginName)) runnable.run();
+    }
+
+    /**
+     * Register a command.
+     *
+     * @param commandBase the command you want to register
+     */
+    public void registerCommand(VertCommandBase commandBase) {
+        this.proxyServer.getCommandManager().register(commandBase, commandBase);
+    }
+
+    /**
+     * Register a listener.
+     *
+     * @param listener the listener you want to register
+     */
+    public void registerListener(Object listener) {
+        this.proxyServer.getEventManager().register(this, listener);
     }
 
     protected void printLogo() {
