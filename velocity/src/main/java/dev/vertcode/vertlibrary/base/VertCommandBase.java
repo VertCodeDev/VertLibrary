@@ -67,7 +67,7 @@ public abstract class VertCommandBase implements SimpleCommand, CommandMeta {
     public Collection<String> getAliases() {
         if (aliases == null || aliases.length < 1) return Collections.singletonList(command);
 
-        List<String> aliases = Arrays.asList(this.aliases);
+        List<String> aliases = new ArrayList<>(Arrays.asList(this.aliases));
         aliases.add(command);
 
         return aliases;

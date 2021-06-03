@@ -8,7 +8,6 @@
  */
 package dev.vertcode.vertlibrary.chat;
 
-import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.TextComponent;
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
 
@@ -87,13 +86,13 @@ public class ChatUtils {
      * @return the colorized {@link String} with placeholders replaced
      */
     public String replacePlaceholdersString(String str, String... placeholders) {
-        if (str.isEmpty()) return colorize(str).content();
+        if (str.isEmpty()) return str;
         if (placeholders.length % 2 != 0) throw new IllegalArgumentException("All placeholders must have a value.");
 
         for (int i = 0; i < placeholders.length; i += 2)
             if (str.contains(placeholders[i])) str = str.replace(placeholders[i], placeholders[i + 1]);
 
-        return colorize(str).content();
+        return str;
     }
 
 }
