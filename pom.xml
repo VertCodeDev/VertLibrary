@@ -16,7 +16,7 @@
     <groupId>dev.vertcode.vertlibrary</groupId>
     <artifactId>parent</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
 
     <modules>
         <module>commons</module>
