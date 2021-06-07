@@ -7,6 +7,15 @@
  * GUI UTILITIES & MONGO DB MADE BY Cody Lynn (Discord: Codiq#3662)
  */
 
+/*
+ * VertCode Development  - Wesley Breukers
+ *
+ * © 2020 - 2021 VertCode Development
+ *
+ * All Rights Reserved.
+ * GUI UTILITIES & MONGO DB MADE BY Cody Lynn (Discord: Codiq#3662)
+ */
+
 package dev.vertcode.vertlibrary.base;
 
 import com.mojang.brigadier.tree.CommandNode;
@@ -58,9 +67,13 @@ public abstract class VertCommandBase implements SimpleCommand, CommandMeta {
 
         if (tabComplete == null || tabComplete.isEmpty()) return new ArrayList<>();
 
-        String lastArg = invocation.arguments()[invocation.arguments().length - 1];
+        if (invocation.arguments().length >= 1) {
+            String lastArg = invocation.arguments()[invocation.arguments().length - 1];
 
-        return tabComplete.stream().filter(s -> s.startsWith(lastArg)).collect(Collectors.toList());
+            return tabComplete.stream().filter(s -> s.startsWith(lastArg)).collect(Collectors.toList());
+        }
+
+        return tabComplete;
     }
 
     @Override

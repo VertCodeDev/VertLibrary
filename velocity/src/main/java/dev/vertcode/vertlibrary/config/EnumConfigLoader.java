@@ -7,6 +7,15 @@
  * GUI UTILITIES & MONGO DB MADE BY Cody Lynn (Discord: Codiq#3662)
  */
 
+/*
+ * VertCode Development  - Wesley Breukers
+ *
+ * © 2020 - 2021 VertCode Development
+ *
+ * All Rights Reserved.
+ * GUI UTILITIES & MONGO DB MADE BY Cody Lynn (Discord: Codiq#3662)
+ */
+
 package dev.vertcode.vertlibrary.config;
 
 import eu.vertcode.vertconfig.VertConfigs;
@@ -53,7 +62,6 @@ public class EnumConfigLoader {
      */
     public void save() {
         if (this.vertConfig == null) return;
-
         try {
             this.vertConfig.save();
         } catch (Exception ex) {

@@ -10,6 +10,16 @@
   ~ GUI UTILITIES & MONGO DB MADE BY Cody Lynn (Discord: Codiq#3662)
   -->
 
+
+<!--
+  ~ VertCode Development  - Wesley Breukers
+  ~
+  ~ © 2020 - 2021 VertCode Development
+  ~
+  ~ All Rights Reserved.
+  ~ GUI UTILITIES & MONGO DB MADE BY Cody Lynn (Discord: Codiq#3662)
+  -->
+
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -38,7 +48,7 @@
         <dependency>
             <groupId>eu.vertcode</groupId>
             <artifactId>vertconfig</artifactId>
-            <version>1.0.0</version>
+            <version>1.0.1</version>
             <scope>compile</scope>
         </dependency>
         <dependency>

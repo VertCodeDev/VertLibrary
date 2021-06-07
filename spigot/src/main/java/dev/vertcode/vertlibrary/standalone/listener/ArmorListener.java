@@ -10,6 +10,16 @@
  * GUI UTILITIES & MONGO DB MADE BY Cody Lynn (Discord: Codiq#3662)
  */
 
+
+/*
+ * VertCode Development  - Wesley Breukers
+ *
+ * © 2020 - 2021 VertCode Development
+ *
+ * All Rights Reserved.
+ * GUI UTILITIES & MONGO DB MADE BY Cody Lynn (Discord: Codiq#3662)
+ */
+
 package dev.vertcode.vertlibrary.standalone.listener;
 
 import dev.vertcode.vertlibrary.VertLibrary;
@@ -53,6 +63,7 @@ public class ArmorListener implements Listener {
 
     public ArmorListener() {
         this.blockedMaterials = getBlocks();
+        System.out.println("Test");
     }
 
     @EventHandler(priority = EventPriority.HIGHEST)
@@ -245,7 +256,7 @@ public class ArmorListener implements Listener {
         }
     }
 
-    @EventHandler(priority = EventPriority.LOWEST)
+    @EventHandler(priority = EventPriority.HIGHEST)
     public void playerInteractEvent(PlayerInteractEvent e) {
         if (e.getClickedBlock() != null && e.getClickedBlock().getType().equals(Material.NOTE_BLOCK)) return;
         if (e.getAction().equals(Action.PHYSICAL)) return;
