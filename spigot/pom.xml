@@ -73,7 +73,7 @@
         <dependency>
             <groupId>dev.vertcode.vertlibrary</groupId>
             <artifactId>commons</artifactId>
-            <version>1.0.0</version>
+            <version>${project.parent.version}</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
