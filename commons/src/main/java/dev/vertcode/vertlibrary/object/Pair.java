@@ -1,6 +1,3 @@
-
-
-
 /*
  * VertCode Development  - Wesley Breukers
  *
@@ -9,7 +6,6 @@
  * All Rights Reserved.
  * GUI UTILITIES & MONGO DB MADE BY Cody Lynn (Discord: Codiq#3662)
  */
-
 package dev.vertcode.vertlibrary.object;
 
 import lombok.Getter;

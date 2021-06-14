@@ -1,6 +1,3 @@
-
-
-
 /*
  * VertCode Development  - Wesley Breukers
  *
@@ -26,8 +23,8 @@ import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.inventory.InventoryHolder;
 
+import java.util.Objects;
 import java.util.Optional;
-import java.util.function.BiConsumer;
 
 public final class GUIWorkerListener implements Listener {
 
@@ -51,10 +48,9 @@ public final class GUIWorkerListener implements Listener {
         Player player = event.getPlayer();
 
         Optional<GUIEntry> optionalEntry = worker.getEntry(event.getSlot());
-        optionalEntry.ifPresent(entry -> {
-            BiConsumer<Player, GUIClickEvent> consumer = optionalEntry.get().getClickAction(event.getClick());
-            if (consumer != null) consumer.accept(player, event);
-        });
+        optionalEntry.ifPresent(entry -> entry
+                .getClickAction(event.getClick()).stream().filter(Objects::nonNull)
+                .forEach(consumer -> consumer.accept(player, event)));
     }
 
     @EventHandler

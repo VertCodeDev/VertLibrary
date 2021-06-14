@@ -1,6 +1,3 @@
-
-
-
 /*
  * VertCode Development  - Wesley Breukers
  *
@@ -21,51 +18,51 @@ import java.util.Objects;
 
 public class GUICloseEvent extends InventoryCloseEvent implements Cancellable {
 
-	private final GUIWorker worker;
-	private final Reason reason;
+    private final GUIWorker worker;
+    private final Reason reason;
 
-	private boolean cancelled;
+    private boolean cancelled;
 
-	public GUICloseEvent(@NotNull GUIWorker worker, InventoryCloseEvent event, Reason reason) {
-		super(event.getView());
+    public GUICloseEvent(@NotNull GUIWorker worker, InventoryCloseEvent event, Reason reason) {
+        super(event.getView());
 
-		this.worker = worker;
-		this.reason = reason;
-	}
+        this.worker = worker;
+        this.reason = reason;
+    }
 
-	@Override
-	public boolean isCancelled() {
-		return cancelled;
-	}
+    @Override
+    public boolean isCancelled() {
+        return cancelled;
+    }
 
-	@Override
-	public void setCancelled(boolean cancelled) {
-		this.cancelled = cancelled;
-	}
+    @Override
+    public void setCancelled(boolean cancelled) {
+        this.cancelled = cancelled;
+    }
 
-	public GUIWorker getWorker() {
-		return worker;
-	}
+    public GUIWorker getWorker() {
+        return worker;
+    }
 
-	public GUICloseEvent.Reason getClosingReason() {
-		return reason;
-	}
+    public GUICloseEvent.Reason getClosingReason() {
+        return reason;
+    }
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(worker, reason, cancelled);
-	}
+    @Override
+    public int hashCode() {
+        return Objects.hash(worker, reason, cancelled);
+    }
 
-	@Override
-	public boolean equals(Object o) {
-		if (this == o) return true;
-		if (o == null || getClass() != o.getClass()) return false;
-		GUICloseEvent that = (GUICloseEvent) o;
-		return cancelled == that.cancelled && Objects.equals(worker, that.worker) && reason == that.reason;
-	}
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        GUICloseEvent that = (GUICloseEvent) o;
+        return cancelled == that.cancelled && Objects.equals(worker, that.worker) && reason == that.reason;
+    }
 
-	public enum Reason {
-		SWITCHED_PAGES,
-		PLAYER
-	}
+    public enum Reason {
+        SWITCHED_PAGES,
+        PLAYER
+    }
 }

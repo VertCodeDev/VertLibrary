@@ -24,59 +24,54 @@ import java.util.function.BiConsumer;
 
 public abstract class GUIEntry {
 
-	@Getter
-	private Multimap<ClickType, BiConsumer<Player, GUIClickEvent>> clickActions = ArrayListMultimap.create();
+    @Getter
+    private Multimap<ClickType, BiConsumer<Player, GUIClickEvent>> clickActions = ArrayListMultimap.create();
 
-	public abstract ItemStack getItem();
+    public abstract ItemStack getItem();
 
-	public abstract int getSlot();
+    public abstract int getSlot();
 
-	public abstract void setSlot(int slot);
+    public abstract void setSlot(int slot);
 
-	public abstract TimeUnit getUpdateTimeUnit();
+    public abstract TimeUnit getUpdateTimeUnit();
 
-	public abstract long getUpdateOffset();
+    public abstract long getUpdateOffset();
 
-	public abstract boolean isUpdateAsync();
+    public abstract boolean isUpdateAsync();
 
-	public GUIEntry onAllClicks(BiConsumer<Player, GUIClickEvent> consumer) {
-		for (ClickType value : ClickType.values()) {
-			clickActions.put(value, consumer);
-		}
-		return this;
-	}
+    public GUIEntry onAllClicks(BiConsumer<Player, GUIClickEvent> consumer) {
+        for (ClickType value : ClickType.values()) {
+            clickActions.put(value, consumer);
+        }
+        return this;
+    }
 
-	public GUIEntry setClickActions(Multimap<ClickType, BiConsumer<Player, GUIClickEvent>> clickActions) {
-		this.clickActions = clickActions;
-		return this;
-	}
+    public GUIEntry setClickActions(Multimap<ClickType, BiConsumer<Player, GUIClickEvent>> clickActions) {
+        this.clickActions = clickActions;
+        return this;
+    }
 
-	public Collection<BiConsumer<Player, GUIClickEvent>> getClickActions(ClickType clickType) {
-		return this.clickActions.get(clickType);
-	}
+    public Collection<BiConsumer<Player, GUIClickEvent>> getClickAction(ClickType clickType) {
+        return this.clickActions.get(clickType);
+    }
 
-	public BiConsumer<Player, GUIClickEvent> getClickAction(ClickType clickType) {
-		//TODO FIX SHIT
-		return this.clickActions.get(clickType).stream().findFirst().orElse(null);
-	}
+    @Override
+    public int hashCode() {
+        return Objects.hash(clickActions);
+    }
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(clickActions);
-	}
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        GUIEntry guiEntry = (GUIEntry) o;
+        return Objects.equals(clickActions, guiEntry.clickActions);
+    }
 
-	@Override
-	public boolean equals(Object o) {
-		if (this == o) return true;
-		if (o == null || getClass() != o.getClass()) return false;
-		GUIEntry guiEntry = (GUIEntry) o;
-		return Objects.equals(clickActions, guiEntry.clickActions);
-	}
-
-	@Override
-	public String toString() {
-		return "GUIEntry{" +
-				"clickActions=" + clickActions +
-				'}';
-	}
+    @Override
+    public String toString() {
+        return "GUIEntry{" +
+                "clickActions=" + clickActions +
+                '}';
+    }
 }

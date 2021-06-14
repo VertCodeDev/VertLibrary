@@ -12,5 +12,5 @@ package dev.vertcode.vertlibrary.gui.entry;
 @FunctionalInterface
 public interface GUIEntryFunction<T, U, R> {
 
-    R compile(T t, U u);
+	R compile(T t, U u);
 }

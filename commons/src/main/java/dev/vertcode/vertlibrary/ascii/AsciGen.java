@@ -1,6 +1,3 @@
-
-
-
 /*
  * VertCode Development  - Wesley Breukers
  *

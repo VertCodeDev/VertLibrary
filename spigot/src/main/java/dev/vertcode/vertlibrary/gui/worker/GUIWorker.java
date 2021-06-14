@@ -1,6 +1,3 @@
-
-
-
 /*
  * VertCode Development  - Wesley Breukers
  *
@@ -171,8 +168,6 @@ public final class GUIWorker {
 
     public void removeWorker() {
         WORKERS.remove(this.inventory.getHolder(), this);
-//		this.ENTRY_MAP.clear();
-//		this.WORKER_ENTRIES.clear();
     }
 
     @Override
@@ -215,8 +210,6 @@ public final class GUIWorker {
 
             this.timeUnit = entry.getUpdateTimeUnit();
             this.offset = Math.toIntExact(entry.getUpdateOffset());
-
-//			this.alive = entry.getUpdateTimeUnit() != null;
         }
 
         private void start() {
