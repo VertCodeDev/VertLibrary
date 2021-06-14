@@ -7,6 +7,15 @@
  * GUI UTILITIES & MONGO DB MADE BY Cody Lynn (Discord: Codiq#3662)
  */
 
+/*
+ * VertCode Development  - Wesley Breukers
+ *
+ * © 2020 - 2021 VertCode Development
+ *
+ * All Rights Reserved.
+ * GUI UTILITIES & MONGO DB MADE BY Cody Lynn (Discord: Codiq#3662)
+ */
+
 package dev.vertcode.vertlibrary.mongo;
 
 import com.mongodb.*;
@@ -40,7 +49,7 @@ public class MongoDB {
         MongoClientURI mongoClientURI = new MongoClientURI(this.mongoDBSettings.getConnectionUri());
 
         this.morphia = new Morphia();
-        loadMapperOptions(classLoader);
+        if (classLoader != null) loadMapperOptions(classLoader);
         this.mongoClient = new MongoClient(mongoClientURI);
 
         this.executorService = Executors.newSingleThreadScheduledExecutor(r -> {
@@ -49,6 +58,18 @@ public class MongoDB {
             thread.setDaemon(true);
             return thread;
         });
+    }
+
+    public MongoDB(String connectionUri, String databaseName, ClassLoader classLoader) {
+        this(new MongoDBSettings(connectionUri, databaseName), classLoader);
+    }
+
+    public MongoDB(MongoDBSettings mongoDBSettings) {
+        this(mongoDBSettings, null);
+    }
+
+    public MongoDB(String connectionUri, String databaseName) {
+        this(new MongoDBSettings(connectionUri, databaseName));
     }
 
     /**
